@@ -1,0 +1,72 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{chngpage}
+\usepackage{graphicx}
+\usepackage[protrusion=true,expansion,kerning]{microtype}
+\usepackage{url}
+
+% adjust margins:
+\topmargin=-0.25in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=8.5in
+\headsep=0.25in
+
+% document-specific information
+\newcommand{\docTitle}{Homework \#2A}
+\newcommand{\docSubTitle}{}
+\newcommand{\docDate}{}
+\newcommand{\docClass}{CS688}
+\newcommand{\docInstructor}{Marlin}
+\newcommand{\authorName}{Emma Strubell}
+
+% header and footer
+\pagestyle{fancy}
+\lhead{\authorName}
+\chead{\docTitle}
+\rhead{\docClass\ --\ \docInstructor}   
+\lfoot{}
+\cfoot{}
+\rfoot{\emph{Page\ \thepage\ of\ \pageref{LastPage}}}                          
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\allowdisplaybreaks
+
+\begin{document}
+\begin{enumerate}
+
+\item % Question 1
+\begin{enumerate}
+\item % 1.1
+Node potentials for the first test word obtained by conditioning on the observed image sequence:
+\begin{center}
+\begin{tabular}{rrrrrrrrrrr}
+ & e & t & a & i & n & o & s & h & r & d \\
+$x_1$ & -20.614412 & 19.860542 & -1.096964 & 9.697199 & -2.312912 & 1.232901 & -4.425652 & -0.06902 & -1.757511 & -0.514178 \\
+$x_2$ & -5.173871 & -3.729256 & 11.162347 & -5.949563 & 2.664692 & -3.840948 & -17.474289 & 5.556249 & 24.229139 & -7.444492 \\
+$x_3$ & 6.860802 & -9.531131 & 7.49398 & -6.572146 & -4.751027 & 1.221163 & -8.026725 & 0.881368 & 9.137968 & 3.285734 \\
+$x_4$ & 24.668222 & -9.554761 & -3.154223 & -3.498605 & -12.169161 & -2.780845 & -2.541463 & -0.551272 & 1.395221 & 8.186879
+\end{tabular}
+\end{center}
+\end{enumerate}
+
+\item % 1.2
+First word: 75.430483; Second word: 63.28962; Third word: 76.582198
+
+\item % 1.3
+First word: 78.3196023798; Second word: 63.2896723602; Third word: 82.486998736
+
+\item % 1.4
+First word: 'trre', 0.82744852444081263; Second word: 'net', 0.99994764112545376; Third word: 'trehd', 0.95966814552853563
+
+\item % 1.5
+
+
+\end{enumerate}
+\end{document}
