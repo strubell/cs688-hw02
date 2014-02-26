@@ -54,7 +54,6 @@ $x_3$ & 6.860802 & -9.531131 & 7.49398 & -6.572146 & -4.751027 & 1.221163 & -8.0
 $x_4$ & 24.668222 & -9.554761 & -3.154223 & -3.498605 & -12.169161 & -2.780845 & -2.541463 & -0.551272 & 1.395221 & 8.186879
 \end{tabular}
 \end{center}
-\end{enumerate}
 
 \item % 1.2
 First word: 75.430483; Second word: 63.28962; Third word: 76.582198
@@ -66,7 +65,26 @@ First word: 78.3196023798; Second word: 63.2896723602; Third word: 82.486998736
 First word: 'trre', 0.82744852444081263; Second word: 'net', 0.99994764112545376; Third word: 'trehd', 0.95966814552853563
 
 \item % 1.5
+poop
+\end{enumerate}
 
+\item % Question 4
+\begin{enumerate}
+\item Partial derivatives of objective function $f(x,y) = -(1-x)^2-100(y-x^2)^2$:
+\begin{align*}
+\frac{\partial f}{\partial x} &= -(2(1-x)(-1))-100(2(y-x^2)(y-2x))\\
+&= 2(1-x)-200(y-x^2)(-2x)\\
+&= 2-2x-200(-2xy+2x^3)\\
+&= -400x^3+400xy-2x+2\\
+&= -400(x^3-xy)-2(x-1)
+\end{align*}
+
+\begin{align*}
+\frac{\partial f}{\partial y} &= -200(y-x^2)
+\end{align*}
+
+\item Value of max: $(1, 1)$; $f(1,1) = 0$
+\end{enumerate}
 
 \end{enumerate}
 \end{document}

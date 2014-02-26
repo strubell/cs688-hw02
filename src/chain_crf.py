@@ -108,5 +108,5 @@ def compute_marginals(clique_potentials, beliefs):
     return position_probs, transition_probs
 
 def classify(position_probs, transition_probs):
-    print [np.exp(np.max(p)) for p in position_probs]
+    #print [np.exp(np.max(p)) for p in position_probs]
     return ''.join(map(lambda c: char_map[c], [np.where(p==np.max(p))[0][0] for p in position_probs]))
