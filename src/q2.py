@@ -64,10 +64,10 @@ def q2_4():
     forward, backward = crf.compute_messages(clique_potentials)
     beliefs = crf.compute_beliefs(clique_potentials, forward, backward)
     pos_probs, trans_probs = crf.compute_marginals(clique_potentials, beliefs)
-    print "marginals:\n", np.exp(pos_probs)
+    print "marginals:\n", pos_probs#np.exp(pos_probs)
     #print "should all be 1:", np.sum(np.exp(pos_probs), axis=1)
     indices = (0,1,8) # only want e, t, r
-    print "pairwise:\n", np.exp(trans_probs[...,indices][:,indices])
+    print "pairwise:\n", trans_probs[...,indices][:,indices]#np.exp(trans_probs[...,indices][:,indices])
 
 '''
 Classify each word in the test set, report accuracy and max probability words
@@ -91,9 +91,10 @@ def q2_5():
         word = crf.classify(pos_probs, trans_probs)
         gold = ''.join(map(lambda c: char_map[c], gold_words[i-1]))
         word_acc += 1.0 if word==gold else 0.0
-        char_acc += sum([1 if word[j]==gold[j] else 0 for j in range(len(word))])
+        chars_correct = sum([1 if word[j]==gold[j] else 0 for j in range(len(word))])
+        char_acc += chars_correct
         test_chars_size += len(word)
-        if i < 6 :
+        if i < 6 : # only print first 5 test words
             print word, gold
     word_acc /= test_size
     char_acc /= test_chars_size

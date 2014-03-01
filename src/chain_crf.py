@@ -46,7 +46,7 @@ def infer_labels(node_potentials, t_weights):
 def compute_exhaustive_marginals(word, f_weights, t_weights, seq):
     potentials = compute_node_potentials(word, f_weights)
     exp_potentials = np.exp(potentials)
-    marginals = np.transpose(np.transpose(exp_potentials)/np.sum(exp_potentials, axis=1))
+    marginals = exp_potentials/np.sum(exp_potentials, axis=1)[:,np.newaxis]
     return marginals
 
 def compute_clique_potentials(node_potentials, t_weights):
@@ -94,7 +94,7 @@ def compute_beliefs(clique_potentials, forward_messages, backward_messages):
     beliefs = np.array([clique_potentials[i] + forward(i) + backward(i) for i in range(num_cliques)])
     return beliefs
 
-def compute_marginals(clique_potentials, beliefs):
+def compute_marginals2(clique_potentials, beliefs):
     num_beliefs = len(beliefs)
     position_probs = np.empty((num_beliefs+1, 10))
     transition_probs = np.empty(np.shape(beliefs))
@@ -107,6 +107,18 @@ def compute_marginals(clique_potentials, beliefs):
     position_probs[-1] = logsumexp(beliefs[-1]-log_Z(beliefs[-1]), ax=0)
     return position_probs, transition_probs
 
+def compute_marginals(clique_potentials, beliefs):
+    num_beliefs = len(beliefs)
+    logZs = np.array([logsumexp(b) for b in beliefs])
+    
+    # calculate position and transition probabilities
+    transition_probs = np.array([np.exp(beliefs[i]-logZs[i]) for i in range(num_beliefs)])
+    position_probs = [np.sum(transition_prob, axis=1) for transition_prob in transition_probs]
+    
+    # sum out last position marginal over other variable
+    position_probs += [np.sum(transition_probs[-1], axis=0)]
+
+    return np.array(position_probs), transition_probs
+
 def classify(position_probs, transition_probs):
-    #print [np.exp(np.max(p)) for p in position_probs]
-    return ''.join(map(lambda c: char_map[c], [np.where(p==np.max(p))[0][0] for p in position_probs]))
+    return ''.join(map(lambda c: char_map[c], np.argmax(position_probs, axis=1).tolist()))

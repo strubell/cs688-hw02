@@ -80,16 +80,16 @@ def q1_5():
     print marginals
 
 print "Question 1.1:"
-#q1_1()
+q1_1()
 
 print "Question 1.2:"
-#q1_2()
+q1_2()
 
 print "Question 1.3:"
-#q1_3()
+q1_3()
 
 print "Question 1.4:"
-#q1_4()
+q1_4()
 
 print "Question 1.5:"
 q1_5()
