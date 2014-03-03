@@ -94,19 +94,6 @@ def compute_beliefs(clique_potentials, forward_messages, backward_messages):
     beliefs = np.array([clique_potentials[i] + forward(i) + backward(i) for i in range(num_cliques)])
     return beliefs
 
-def compute_marginals2(clique_potentials, beliefs):
-    num_beliefs = len(beliefs)
-    position_probs = np.empty((num_beliefs+1, 10))
-    transition_probs = np.empty(np.shape(beliefs))
-    # calculate position and transition probabilities
-    for i in range(num_beliefs):
-        logz = log_Z(beliefs[i])
-        position_probs[i] = logsumexp(beliefs[i] - logz, ax=1)#np.sum(np.exp(beliefs[i] - logz), axis=1)
-        transition_probs[i] = np.exp(beliefs[i] - logz)
-    # sum last position over other variable
-    position_probs[-1] = logsumexp(beliefs[-1]-log_Z(beliefs[-1]), ax=0)
-    return position_probs, transition_probs
-
 def compute_marginals(clique_potentials, beliefs):
     num_beliefs = len(beliefs)
     logZs = np.array([logsumexp(b) for b in beliefs])
@@ -120,5 +107,5 @@ def compute_marginals(clique_potentials, beliefs):
 
     return np.array(position_probs), transition_probs
 
-def classify(position_probs, transition_probs):
+def classify(position_probs):
     return ''.join(map(lambda c: char_map[c], np.argmax(position_probs, axis=1).tolist()))

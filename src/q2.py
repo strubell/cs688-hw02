@@ -64,10 +64,11 @@ def q2_4():
     forward, backward = crf.compute_messages(clique_potentials)
     beliefs = crf.compute_beliefs(clique_potentials, forward, backward)
     pos_probs, trans_probs = crf.compute_marginals(clique_potentials, beliefs)
-    print "marginals:\n", pos_probs#np.exp(pos_probs)
-    #print "should all be 1:", np.sum(np.exp(pos_probs), axis=1)
+    print "marginals:\n", pos_probs
+    # uncomment to print LaTeX tabular version
+    #print_marginals_table(pos_probs)
     indices = (0,1,8) # only want e, t, r
-    print "pairwise:\n", trans_probs[...,indices][:,indices]#np.exp(trans_probs[...,indices][:,indices])
+    print "pairwise:\n", trans_probs[...,indices][:,indices]
 
 '''
 Classify each word in the test set, report accuracy and max probability words
@@ -87,8 +88,8 @@ def q2_5():
         clique_potentials = crf.compute_clique_potentials(node_potentials, t_weights)
         forward, backward = crf.compute_messages(clique_potentials)
         beliefs = crf.compute_beliefs(clique_potentials, forward, backward)
-        pos_probs, trans_probs = crf.compute_marginals(clique_potentials, beliefs)
-        word = crf.classify(pos_probs, trans_probs)
+        pos_probs, _ = crf.compute_marginals(clique_potentials, beliefs)
+        word = crf.classify(pos_probs)
         gold = ''.join(map(lambda c: char_map[c], gold_words[i-1]))
         word_acc += 1.0 if word==gold else 0.0
         chars_correct = sum([1 if word[j]==gold[j] else 0 for j in range(len(word))])

@@ -19,6 +19,8 @@ def q1_1():
     f_weights = load_feature_weights()
     potentials = crf.compute_node_potentials(data, f_weights)
     print potentials
+    # uncomment to print LaTeX tabular version
+    #print_marginals_table(potentials)
 
 '''
 Compute negative energy of true label sequence for first three test words
@@ -78,6 +80,8 @@ def q1_5():
     gold_seq = load_gold('test')[0]
     marginals = crf.compute_exhaustive_marginals(data, f_weights, t_weights, gold_seq)
     print marginals
+    # uncomment to print LaTeX tabular version
+    #print_marginals_table(marginals)
 
 print "Question 1.1:"
 q1_1()
@@ -86,10 +90,10 @@ print "Question 1.2:"
 q1_2()
 
 print "Question 1.3:"
-q1_3()
+#q1_3()
 
 print "Question 1.4:"
-q1_4()
+#q1_4()
 
 print "Question 1.5:"
 q1_5()
