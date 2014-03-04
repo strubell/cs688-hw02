@@ -47,17 +47,17 @@
 Node potentials for the first test word obtained by conditioning on the observed image sequence:
 \begin{center}
 \begin{tabular}{rrrrr}
-& $x_1$ & $x_2$ & $x_3$ & $x_4$ \\
-e & $-20.614412$ & $-5.173871$ & $6.860802$ & $24.668222$ \\
-t & $19.860542$ & $-3.729256$ & $-9.531131$ & $-9.554761$ \\
-a & $-1.096964$ & $11.162347$ & $7.49398$ & $ -3.154223$ \\
-i & $9.697199$ & $-5.949563$ & $-6.572146$ & $-3.498605$ \\
-n & $-2.312912$ & $2.664692$ & $-4.751027$ & $-12.169161$ \\
-o & $1.232901$ & $-3.840948$ & $1.221163$ & $-2.780845$ \\
-s & $-4.425652$ & $-17.474289$ & $-8.026725$ & $-2.541463$ \\
-h & $-0.06902$ & $5.556249$ & $0.881368$ & $-0.551272$ \\
-r & $-1.757511$ & $24.229139$ & $9.137968$ & $1.395221$ \\
-d & $-0.514178$ & $-7.444492$ & $3.285734$ & $8.186879$
+ & $x_0$ & $x_1$ & $x_2$ & $x_3$ \\
+e  & -20.6144 & -5.17387 & 6.8608 & 24.6682 \\
+t  & 19.8605 & -3.72926 & -9.53113 & -9.55476 \\
+a  & -1.09696 & 11.1623 & 7.49398 & -3.15422 \\
+i  & 9.6972 & -5.94956 & -6.57215 & -3.49861 \\
+n  & -2.31291 & 2.66469 & -4.75103 & -12.1692 \\
+o  & 1.2329 & -3.84095 & 1.22116 & -2.78085 \\
+s  & -4.42565 & -17.4743 & -8.02672 & -2.54146 \\
+h  & -0.06902 & 5.55625 & 0.881368 & -0.551272 \\
+r  & -1.75751 & 24.2291 & 9.13797 & 1.39522 \\
+d  & -0.514178 & -7.44449 & 3.28573 & 8.18688 \\
 \end{tabular}
 \end{center}
 
@@ -72,32 +72,259 @@ Second word: 63.2896723602\\
 Third word: 82.486998736
 
 \item % 1.4
-First word: `trre', 0.82744852444081263\\
-Second word: `net', 0.99994764112545376\\
-Third word: `trehd', 0.95966814552853563
+First predicted word: `trre' with probability 0.82744852444081263\\
+Second predicted word: `net' with probability 0.99994764112545376\\
+Third predicted word: `trehd' with probability 0.95966814552853563
 
 \item % 1.5
-
+Marginal distribution for characters in first word:
+\begin{center}
+\begin{tabular}{rrrrr}
+ & $x_0$ & $x_1$ & $x_2$ & $x_3$ \\
+e  & 2.64201e-18 & 1.69994e-13 & 0.0789471 & 1 \\
+t  & 0.999961 & 7.20813e-13 & 6.00358e-09 & 1.37135e-15 \\
+a  & 7.91141e-10 & 2.11428e-06 & 0.148704 & 8.25782e-13 \\
+i  & 3.85567e-05 & 7.82628e-14 & 1.15739e-07 & 5.85197e-13 \\
+n  & 2.34517e-10 & 4.312e-10 & 7.15127e-07 & 1.00399e-16 \\
+o  & 8.13021e-09 & 6.44637e-13 & 0.00028059 & 1.19956e-12 \\
+s  & 2.83546e-11 & 7.73447e-19 & 2.7025e-08 & 1.524e-12 \\
+h  & 2.21149e-09 & 7.7708e-09 & 0.000199757 & 1.1151e-11 \\
+r  & 4.08679e-10 & 0.999998 & 0.769656 & 7.81023e-11 \\
+d  & 1.41695e-09 & 1.75516e-14 & 0.00221159 & 6.95414e-08 \\
+\end{tabular}
+\end{center}
 
 \end{enumerate}
 
 \item % Question 2
 \begin{enumerate}
 \item % 2.1
+Clique potentials for the labels `e', `t', and `r' for each of the three clique potentials:
+
+\begin{center}
+\begin{tabular}{rrrr}
+& e & t & r \\
+e & -20.985438 & -20.493643 & -20.3262 \\
+t & 19.981311 & 19.206803 & 19.755134 \\
+r & -1.469299 & -1.862919 & -1.705992
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{rrrr}
+& e & t & r \\
+e & -5.544897 & -5.053102 & -4.885659 \\
+t & -3.608487 & -4.382995 & -3.834664 \\
+r & 24.517351 & 24.123731 & 24.280658
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{rrrr}
+& e & t & r \\
+e & 31.157998 & -2.57319 & 8.544235 \\
+t & 15.25786 & -19.739631 & -8.241318 \\
+r & 34.094402 & -0.522201 & 10.584708
+\end{tabular}
+\end{center}
+
 \item % 2.2
+Forward message $0 \to 1$:
+\begin{center}
+19.9813  19.2068  20.1412  19.914  19.572 20.0692  19.4829   20.2260  19.7551  19.6081
+\end{center}
+
+Forward message $1 \to 2$:
+\begin{center}
+44.2725 43.8789 44.1853 44.2056  43.8944 44.2048 43.6615 43.8942 44.0358 43.8045
+\end{center}
+
+Backward message $2 \to 1$:
+\begin{center}
+31.1579  15.2578  31.9680  17.7105   20.0251 25.6918  17.0561  25.8221  34.0944  28.2325
+\end{center}
+  
+Backward message $1 \to 0$:
+\begin{center}
+29.3079  30.4790  45.5675  28.5065  36.8641 30.5860  16.5155  39.7564  58.5644  26.6852
+\end{center}
+
 \item % 2.3
+Log belief entries between `e' and `t' for each of the three cliques:
+
+\begin{center}
+\begin{tabular}{rrr}
+& e & t \\
+e & 8.32249466 & 9.98536316 \\
+t & 49.28924366 & 49.68580916
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{rrr}
+& e & t \\
+e & 45.59443538 & 30.1860923 \\
+t & 46.75639242 & 30.08174634
+\end{tabular}
+\end{center}
+ 
+\begin{center}
+\begin{tabular}{rrr}
+& e & t \\
+e & 75.43053841 & 41.69935041 \\
+t & 59.13678307 & 24.13929207
+\end{tabular}
+\end{center}
+
 \item % 2.4
+Marginal distributions for first test word:
+\begin{center}
+\begin{tabular}{rrrrr}
+ & $x_0$ & $x_1$ & $x_2$ & $x_3$ \\
+e  & 3.91628e-18 & 2.46766e-13 & 0.0556283 & 1 \\
+t  & 0.999947 & 3.6689e-13 & 4.66667e-09 & 1.14521e-15 \\
+a  & 1.07476e-09 & 3.33578e-06 & 0.114603 & 7.73873e-13 \\
+i  & 5.34556e-05 & 1.03585e-13 & 7.51793e-08 & 5.87521e-13 \\
+n  & 2.38182e-10 & 3.13546e-10 & 5.574e-07 & 8.18355e-17 \\
+o  & 1.12626e-08 & 9.67242e-13 & 0.000219768 & 1.15046e-12 \\
+s  & 2.28135e-11 & 4.17012e-19 & 2.26758e-08 & 1.0386e-12 \\
+h  & 2.24568e-09 & 1.08716e-08 & 0.000183516 & 9.14726e-12 \\
+r  & 4.7811e-10 & 0.999997 & 0.827496 & 7.28244e-11 \\
+d  & 1.31538e-09 & 1.23377e-14 & 0.0018687 & 5.3906e-08 \\
+\end{tabular}
+\end{center}
+
+Pairwise marginals for the labels `e', `t', `r':
+
+\begin{center}
+\begin{tabular}{rrrr}
+& e & t & r \\
+e & 3.98696448e-31 & 2.10289206e-30 & 3.91627463e-18 \\
+t & 2.46760362e-13 & 3.66861052e-13 & 9.99943181e-01 \\
+r & 1.19232278e-22 & 2.59440401e-22 & 4.78108787e-10
+\end{tabular}
+\end{center}
+
+\begin{center}
+\begin{tabular}{rrrr}
+& e & t & r \\
+e & 6.13254233e-15 & 1.24704515e-21 & 2.23464220e-13 \\
+t & 1.96007227e-14 & 1.12347989e-21 & 2.94651513e-13 \\
+r & 5.56281577e-02 & 4.66665238e-09 & 8.27492808e-01
+\end{tabular}
+\end{center}
+  
+\begin{center}
+\begin{tabular}{rrrr}
+& e & t & r \\
+e & 5.56282578e-02 & 1.24746004e-16 & 8.39968447e-12 \\
+t & 4.66667360e-09 & 2.94978393e-24 & 2.90699371e-19 \\
+r & 8.27495770e-01 & 7.65536879e-16 & 5.10076608e-11
+\end{tabular}
+\end{center}
+
 \item % 2.5
-Predictions for the first five words: trre net trehd east strait; Character accuracy: 0.895
+Predictions for the first five words: trre net trehd east strait\\
+Overall character accuracy: 0.895
 \end{enumerate}
 
 \item % Question 3
 \begin{enumerate}
 \item % 3.1
+The average log likelihood function for the CRF given a data set consisting of $N$ image sequences $x_i$ and label sequences $y_i$ is:
+\begin{align*}
+\mathcal{L}(W\mid x_{1:N},y_{1:N}) &= \frac{1}{N}\sum_{n=1}^N\log P_W(y_n,x_n)
+\end{align*} 
+
+Where the probability function is given in terms of the negative energy function $-E_W(x_n,y_n)$ and the partition function $Z$:
+\begin{align*}
+P_W(y_n,x_n) = \frac{-E_W(x_n,y_n)}{Z}
+\end{align*}
+
+With the negative energy function:
+\begin{align*}
+-E_W(x_n,y_n) &= \exp\left[
+\sum_{j=1}^{L_i}\sum_{c=1}^C\sum_{f=1}^FW_{cf}^F[y_{nj}=c]x_{njf}
++ \sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^CW_{cc'}^T[y_{nj}=c][y_{nj+1}=c']
+\right]
+\end{align*}
+
+And the partition function:
+\begin{align*}
+Z &= \sum_{x'_i}\sum_{y'_i}\exp\left[
+\sum_{j=1}^{L_i}\sum_{c=1}^C\sum_{f=1}^FW_{cf}^F[y'_{ij}=c]x'_{ijf}
++ \sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^CW_{cc'}^T[y'_{ij}=c][y'_{ij+1}=c']
+\right]
+\end{align*}
+
 \item % 3.2
+To take the partial derivative of the above log likelihood function with respect to $W_{cf}^F$ we first apply the chain rule:
+\begin{align*}
+\frac{\partial\mathcal{L}}{\partial W_{cf}^F} &= \frac{1}{N}\sum_{n=1}^N\left[\frac{1}{P_W(y_n,x_n)}\frac{\partial P_W}{\partial W_{cf}^F}P_W(y_n,x_n)\right]
+\end{align*}
+Now we need to evaluate the partial derivative of $P_W$ with respect to $W_{cf}^F$. We do this via the quotient rule:
+\begin{align*}
+\frac{\partial P_W}{\partial W_{cf}^F} &= 
+\frac{\exp(-E_W(y_n,x_n))}{\sum_{y'}\sum_{x'}\exp(-E_W(y_n,x_n))}\frac{-\partial E_W(y_n,x_n)}{\partial W_{cf}^F}\\
+&= \frac{\exp(-E_W(y_n,x_n))}{\left[\sum_{y'}\sum_{x'}\exp(-E_W(y_n,x_n))\right]^2}\sum_{y'}\sum_{x'}\exp(-E_W(y',x'))\frac{-\partial E_W(y',x')}{\partial W_cf^F}
+\end{align*}
+Noting that we can substitute in $P_W(y_n,x_n)$, we can simplify the above:
+\begin{align*}
+\frac{\partial P_W}{\partial W_{cf}^F} &= 
+P_W(y_n,x_n)\frac{-\partial E_W(y_n,x_n)}{\partial W_{cf}^F}
+-P_W(y_n,x_n)\sum_{y'}\sum_{x'}P_W(y',x')\frac{-\partial E_W(y',x')}{\partial W_{cf}^F}
+\end{align*}
+Now we take the derivative of the energy function $E_W$ with respect to $W_{cf}^F$:
+\begin{align*}
+\frac{\partial E_W(y_n,x_n)}{\partial W_{cf}^F} = \sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{f=1}^F[y_{nj}=c][x_{njf}]
+\end{align*}
+Finally, substituting the above result back in gives the partial derivative of the average log likelihood function with respect to $W_{cf}^F$:
+\begin{align*}
+\frac{\partial\mathcal{L}}{\partial W_{cf}^F} &= 
+\frac{1}{N}\sum_{n=1}^N\Big[ 
+\frac{1}{P_W(y_n,x_n)}\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{f=1}^F[y_{nj}=c][x_{njf}]\\
+&-P_W(y_n,x_n)\sum_{y'}\sum_{x'}P_W(y',x')\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{f=1}^F[y'_{j}=c][x'_{jf}]
+\Big]\\
+&= \frac{1}{N}\sum_{n=1}^N\left[ 
+\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^F[y_{nj}=c][x_{njf}]
+-\sum_{y'}\sum_{x'}P_W(y',x')\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{f=1}^F[y'_{j}=c][x'_{jf}]
+\right]
+\end{align*}
+Which can be further simplified by noting that $n$ is not used in the second term:
+\begin{align*}
+\frac{\partial\mathcal{L}}{\partial W_{cf}^F} &=
+\frac{1}{N}\sum_{n=1}^N\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^F[y_{nj}=c][x_{njf}]
+-\sum_{y'}\sum_{x'}P_W(y',x')\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{f=1}^F[y'_{j}=c][x'_{jf}]
+\end{align*}
+
 \item % 3.3
+The derivation for the partial derivative of the log likelihood with respect to $W_{cc'}^T$ is exactly the same as for $W_{cf}^F$ except for the derivative of $E_W(y_n,x_n)$, which is given by:
+\begin{align*}
+\frac{\partial E_W(y_n,x_n)}{\partial W_{cc'}^T} = \sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^C[y_{nj}=c][y_{nj+1}=c']
+\end{align*}
+Substituting into the final equation, we get:
+\begin{align*}
+\frac{\partial\mathcal{L}}{\partial W_{cf}^F} &=
+\frac{1}{N}\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^C[y_{nj}=c][y_{nj+1}=c']
+-\sum_{y'}\sum_{x'}P_W(y',x')\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^C[y'_{j}=c][y'_{j+1}=c']
+\end{align*}
+
 \item % 3.4
+Using the marginals efficiently computed by the sum-product algorithm to compute the value of the log-likelihood function is straightforward. The log likelihood is just the sum over the log-marginals for each position.
+
+To efficiently compute the derivatives is slightly less straightforward. We must observe that the expensive sum over $x_i$ and $y_i$ in the derivatives can be moved inside the other sums in the second term, so we only need to use the marginals that we need at each iteration. For example:
+\begin{align*}
+\frac{\partial\mathcal{L}}{\partial W_{cf}^F} &=
+\frac{1}{N}\sum_{n=1}^N\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^F[y_{nj}=c][x_{njf}]
+-\sum_{y'}\sum_{x'}P_W(y',x')\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{f=1}^F[y'_{j}=c][x'_{jf}]\\
+&= \frac{1}{N}\sum_{n=1}^N\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{c'=1}^F[y_{nj}=c][x_{njf}]
+-\sum_{j=1}^{L_i-1}\sum_{c=1}^C\sum_{f=1}^F\sum_{y'_j}\sum_{x'_{jf}}P_W(y'_j,x'_{jf})[y'_{j}=c][x'_{jf}]
+\end{align*}
+Thus allowing for runtime that is linear in the length of the chain.
+
 \item % 3.5
+Average log likelihood of first 50 training examples: -4.08473234634e-05
+
 \end{enumerate}
 
 \item % Question 4
