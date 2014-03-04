@@ -90,10 +90,10 @@ print "Question 1.2:"
 q1_2()
 
 print "Question 1.3:"
-#q1_3()
+q1_3()
 
 print "Question 1.4:"
-#q1_4()
+q1_4()
 
 print "Question 1.5:"
 q1_5()
