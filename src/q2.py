@@ -102,17 +102,17 @@ def q2_5():
     print "Word accuracy:", word_acc
     print "Character accuracy:", char_acc
 
-print "Question 2.1:"
-q2_1()
+#print "Question 2.1:"
+#q2_1()
 
-print "Question 2.2:"
-q2_2()
+#print "Question 2.2:"
+#q2_2()
 
-print "Question 2.3:"
-q2_3()
+#print "Question 2.3:"
+#q2_3()
 
-print "Question 2.4:"
-q2_4()
+#print "Question 2.4:"
+#q2_4()
 
-print "Question 2.5:"
+#print "Question 2.5:"
 q2_5()
