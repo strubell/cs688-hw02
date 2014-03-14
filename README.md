@@ -27,4 +27,10 @@ For the answers to Question 4 (optimization warm-up), run:
 $ python q4.py
 ```
 
+To run Question 5 (HW2B Q1, Training), run:
+
+```
+$ python q5.py
+```
+
 All the good stuff is located in `chain_crf.py`.
