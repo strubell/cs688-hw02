@@ -15,7 +15,6 @@ def logsumexp(v, ax=None):
     return m + np.log(np.sum(np.exp(v-m),axis=ax))
 
 def compute_node_potentials(word, f_weights):
-    #potentials = np.reshape(np.matrix(weights)*np.matrix(np.transpose(data)), (4,10))
     potentials = np.array([np.dot(f_weights, letter) for letter in word])
     return potentials
 
@@ -106,28 +105,6 @@ def compute_marginals(clique_potentials, beliefs):
     position_probs += [np.sum(transition_probs[-1], axis=0)]
 
     return np.array(position_probs), transition_probs
-
-def compute_pos_marginals(clique_potentials, beliefs):
-    num_beliefs = len(beliefs)
-    logZs = np.array([logsumexp(b) for b in beliefs])
-    
-    # calculate position and transition probabilities
-    transition_probs = np.array([np.exp(beliefs[i]-logZs[i]) for i in range(num_beliefs)])
-    position_probs = [np.sum(transition_prob, axis=1) for transition_prob in transition_probs]
-    
-    # sum out last position marginal over other variable
-    position_probs += [np.sum(transition_probs[-1], axis=0)]
-
-    return np.array(position_probs)
-
-def compute_pairwise_marginals(clique_potentials, beliefs):
-    num_beliefs = len(beliefs)
-    logZs = np.array([logsumexp(b) for b in beliefs])
-    
-    # calculate position and transition probabilities
-    transition_probs = np.array([np.exp(beliefs[i]-logZs[i]) for i in range(num_beliefs)])
-
-    return transition_probs
 
 def classify(position_probs):
     return ''.join(map(lambda c: char_map[c], np.argmax(position_probs, axis=1).tolist()))

@@ -1,0 +1,70 @@
+\documentclass[12pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{chngpage}
+\usepackage{graphicx}
+\usepackage[protrusion=true,expansion,kerning]{microtype}
+\usepackage{url}
+
+% adjust margins:
+\topmargin=-0.25in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=8.5in
+\headsep=0.25in
+
+% document-specific information
+\newcommand{\docTitle}{Homework \#2B}
+\newcommand{\docSubTitle}{}
+\newcommand{\docDate}{}
+\newcommand{\docClass}{CS688}
+\newcommand{\docInstructor}{Marlin}
+\newcommand{\authorName}{Emma Strubell}
+
+% header and footer
+\pagestyle{fancy}
+\lhead{\authorName}
+\chead{\docTitle}
+\rhead{\docClass\ --\ \docInstructor}   
+\lfoot{}
+\cfoot{}
+\rfoot{\emph{Page\ \thepage\ of\ \pageref{LastPage}}}                          
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\allowdisplaybreaks
+
+\begin{document}
+\begin{enumerate}
+
+\item % Question 1
+\begin{enumerate}
+
+\item % 1.1
+Plot of the total training time as the number of examples used to train increases. The growth appears to be linear in the number of examples.
+
+\begin{center}
+\includegraphics[scale=0.75]{speed-plot}
+\end{center}
+
+\item % 1.2
+Plot of character prediction error as the number of examples used to train increases. The error appears to decay exponentially.
+
+\begin{center}
+\includegraphics[scale=0.75]{error-plot}
+\end{center}
+
+\item % 1.3
+Plot of the average log likelihood as the number of examples used to train increases. The log likelihood appears to grow closer to 0, with some variation since the numbers are so small (this plot would likely be smoothed by averaging over multiple runs).
+
+\begin{center}
+\includegraphics[scale=0.75]{ll-plot}
+\end{center}
+
+\end{enumerate}
+\end{enumerate}
+\end{document}
